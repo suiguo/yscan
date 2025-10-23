@@ -191,7 +191,7 @@ func (s *Scan) process(t *storeTool, idx int, nowBlockNum int64) {
 		if s.zap_l != nil {
 			s.zap_l.Info("scan.process",
 				zap.String("event", "dispatch"),
-				zap.Int64("head", nowBlockNum),
+				zap.Int64("scan", h),
 				zap.Int("current_shard", idx),
 				zap.Int64("elapsed_ms", time.Since(startTs).Milliseconds()),
 			)

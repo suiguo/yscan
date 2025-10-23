@@ -4,6 +4,7 @@ package bg
 import (
 	"encoding/hex"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"math/big"
 	"strconv"
@@ -173,7 +174,7 @@ func (t *ethTool) GetBlockNum() (int64, error) {
 		return 0, err
 	}
 	if resp.Error.Code != 0 {
-		return 0, fmt.Errorf(resp.Error.Message)
+		return 0, errors.New(resp.Error.Message)
 	}
 	return strconv.ParseInt(resp.Result, 0, 64)
 }
