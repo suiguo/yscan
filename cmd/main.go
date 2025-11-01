@@ -10,6 +10,7 @@ import (
 func main() {
 	scan := bg.NewWork(10,
 		nil,
+		nil,
 		// logger.GetLogger("tag").Zap(),
 		bg.ChainScanCfg{
 			Chain:      bg.CHAIN_TRON,

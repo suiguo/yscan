@@ -83,8 +83,8 @@ func (w *WorkHandler) Result() <-chan []*ContractTokenTran {
 }
 
 // NewWork maxGoNum 最大执行分组 cfg 链的配置
-func NewWork(maxGoNum int, log *zap.Logger, cfgs ...ChainScanCfg) *WorkHandler {
-	scan := NewScan(int64(maxGoNum), nil, log, cfgs...)
+func NewWork(maxGoNum int, disk Disk, log *zap.Logger, cfgs ...ChainScanCfg) *WorkHandler {
+	scan := NewScan(int64(maxGoNum), disk, log, cfgs...)
 	ctx, cancel := context.WithCancel(context.Background())
 	return &WorkHandler{
 		zap_l:  log,
